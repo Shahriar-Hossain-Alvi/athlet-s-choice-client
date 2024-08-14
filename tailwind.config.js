@@ -7,7 +7,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        acPink: "#EF2853",
+        acNavyBlue: "#00BAFF",
+        acBlackPrimary: "#161616",
+        acDarkGray: "#232323",
+        acBlackSecondary: "#1D1D1D "
+      }
+    },
   },
   plugins: [
     daisyui,

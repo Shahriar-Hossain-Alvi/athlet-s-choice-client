@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* custom css */
+
+#navList a.active{
+    background-color: #00BAFF;
+    color: black;
+    font-weight: 600;
+    font-size: 16px;
+}

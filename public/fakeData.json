@@ -1,0 +1,402 @@
+[
+    {
+        "productName": "Pro Running Shoes",
+        "brandName": "FitGear",
+        "categoryName": "Running",
+        "price": 120.99,
+        "rating": 4.8,
+        "dateAdded": "2024-08-01",
+        "description": "High-performance running shoes with cushioned soles for maximum comfort.",
+        "productImage": "https://kailasgear.com/cdn/shop/articles/1._FUGA-Pro4-trail_running_shoes-main.jpg?v=1652666577&width=700"
+    },
+    {
+        "productName": "Advanced Treadmill",
+        "brandName": "FitGear",
+        "categoryName": "Fitness Equipment",
+        "price": 899.99,
+        "rating": 4.7,
+        "dateAdded": "2024-08-02",
+        "description": "Advanced treadmill with multiple workout programs and incline settings.",
+        "productImage": "https://raselsports.com/images/products/3i02mt5lin7jtq5/JOGWAY-FOLDABLE-MOTORIZED-TREADMILL-JAS-29AS-(Jogway-Advanced-Series-2023).webp"
+    },
+    {
+        "productName": "Yoga Mat Pro",
+        "brandName": "FlexFit",
+        "categoryName": "Yoga",
+        "price": 39.99,
+        "rating": 4.9,
+        "dateAdded": "2024-08-03",
+        "description": "Non-slip yoga mat with extra cushioning for comfort during practice.",
+        "productImage": "https://cdn.webshopapp.com/shops/251730/files/459495637/image.jpg"
+    },
+    {
+        "productName": "Multi-Purpose Dumbbells",
+        "brandName": "FitGear",
+        "categoryName": "Fitness Equipment",
+        "price": 79.99,
+        "rating": 4.6,
+        "dateAdded": "2024-08-04",
+        "description": "Adjustable dumbbells for strength training with various weight options.",
+        "productImage": "https://i5.walmartimages.com/seo/ARVAKOR-66-LBS-Adjustable-Dumbbell-Set-Free-Weights-Dumbbells-Set-for-Workout-Black_8199f2f9-6451-4847-90d7-5002efadc5ac.a0599ab8bdbe675b84e422265d8db3d7.jpeg"
+    },
+    {
+        "productName": "Premium Yoga Block",
+        "brandName": "FlexFit",
+        "categoryName": "Yoga",
+        "price": 15.99,
+        "rating": 4.7,
+        "dateAdded": "2024-08-05",
+        "description": "Durable yoga block for enhanced stability and support during poses.",
+        "productImage": "https://i5.walmartimages.com/seo/Node-Fitness-Premium-Yoga-Block-Set-of-2-4-Thick-Foam-Brick-Black_027f4594-fa78-4634-b4ae-bfdce47f693b.ac40cf7e63a41b7f91727f40cde2d18d.jpeg"
+    },
+    {
+        "productName": "Cycling Helmet",
+        "brandName": "RideSafe",
+        "categoryName": "Cycling",
+        "price": 59.99,
+        "rating": 4.8,
+        "dateAdded": "2024-08-06",
+        "description": "Lightweight cycling helmet with adjustable fit and superior ventilation.",
+        "productImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Bicycle_Helmet_0085.jpg/800px-Bicycle_Helmet_0085.jpg"
+    },
+    {
+        "productName": "Mountain Bike Pro",
+        "brandName": "RideSafe",
+        "categoryName": "Cycling",
+        "price": 1299.99,
+        "rating": 4.9,
+        "dateAdded": "2024-08-07",
+        "description": "High-performance mountain bike with rugged tires and durable frame.",
+        "productImage": "https://giantmelbourne.com.au/cdn/shop/files/MY24-GLORY-ADVANCED_720x.jpg?v=1686615282"
+    },
+    {
+        "productName": "All-Terrain Hiking Boots",
+        "brandName": "TrailBlaze",
+        "categoryName": "Hiking",
+        "price": 139.99,
+        "rating": 4.7,
+        "dateAdded": "2024-08-08",
+        "description": "Waterproof hiking boots with durable soles for all-terrain adventures.",
+        "productImage": "https://d1nymbkeomeoqg.cloudfront.net/photos/28/70/408569_1515_L2.webp"
+    },
+    {
+        "productName": "Trail Running Shoes",
+        "brandName": "TrailBlaze",
+        "categoryName": "Running",
+        "price": 110.99,
+        "rating": 4.6,
+        "dateAdded": "2024-08-09",
+        "description": "Lightweight trail running shoes with excellent grip and support.",
+        "productImage": "https://s3.amazonaws.com/www.irunfar.com/wp-content/uploads/2022/06/15204432/Best-Trail-Running-Shoes-Hoka-Speedgoat-5-768x512.jpg"
+    },
+    {
+        "productName": "Ultimate Frisbee Disc",
+        "brandName": "FlyPro",
+        "categoryName": "Frisbee",
+        "price": 14.99,
+        "rating": 4.7,
+        "dateAdded": "2024-08-10",
+        "description": "Aerodynamic frisbee disc designed for long-distance throws.",
+        "productImage": "https://www.hartsport.com.au/Images/ProductImages/16-132.jpg"
+    },
+    {
+        "productName": "Pro Tennis Racket",
+        "brandName": "SmashMaster",
+        "categoryName": "Tennis",
+        "price": 199.99,
+        "rating": 4.8,
+        "dateAdded": "2024-08-11",
+        "description": "High-performance tennis racket with excellent balance and control.",
+        "productImage": "https://dunlopsports.com/wp-content/uploads/2019/01/TRISTORM-PRO-255-1-800x880.jpg"
+    },
+    {
+        "productName": "Tennis Balls (Pack of 6)",
+        "brandName": "SmashMaster",
+        "categoryName": "Tennis",
+        "price": 14.99,
+        "rating": 4.6,
+        "dateAdded": "2024-08-12",
+        "description": "Durable tennis balls designed for consistent bounce and performance.",
+        "productImage": "https://static-01.daraz.com.bd/p/7a042bac036c812bafa08870fbeced01.jpg"
+    },
+    {
+        "productName": "Camping Tent",
+        "brandName": "CampEasy",
+        "categoryName": "Camping",
+        "price": 249.99,
+        "rating": 4.7,
+        "dateAdded": "2024-08-13",
+        "description": "Spacious camping tent with waterproof design and easy setup.",
+        "productImage": "https://m.media-amazon.com/images/I/61LA1QbEqnL._AC_SL1500_.jpg"
+    },
+    {
+        "productName": "Camping Sleeping Bag",
+        "brandName": "CampEasy",
+        "categoryName": "Camping",
+        "price": 89.99,
+        "rating": 4.8,
+        "dateAdded": "2024-08-14",
+        "description": "Warm and comfortable sleeping bag suitable for all seasons.",
+        "productImage": "https://contents.mediadecathlon.com/p2455213/k$2ffefdf08cb96cd9db98de105a4d2305/camping-sleeping-bag-arpenaz-20-quechua-8648438.jpg"
+    },
+    {
+        "productName": "Basketball Hoop",
+        "brandName": "HoopMaster",
+        "categoryName": "Basketball",
+        "price": 349.99,
+        "rating": 4.7,
+        "dateAdded": "2024-08-15",
+        "description": "Adjustable basketball hoop with sturdy base and durable backboard.",
+        "productImage": "https://nwscdn.com/media/wysiwyg/2023/usp-conformed_.jpeg"
+    },
+    {
+        "productName": "Basketball",
+        "brandName": "HoopMaster",
+        "categoryName": "Basketball",
+        "price": 29.99,
+        "rating": 4.8,
+        "dateAdded": "2024-08-16",
+        "description": "Official size and weight basketball with superior grip and durability.",
+        "productImage": "https://au.wilson.com/cdn/shop/products/WTB7510ID_3_7_NBA_OFFICIAL_GAME_BALL_BR.png.cq5dam.web.2000.2000_0882432a-2452-4970-b5de-ce0e0e9a7b45_1024x1024.jpg?v=1676520704"
+    },
+    {
+        "productName": "Football",
+        "brandName": "KickPro",
+        "categoryName": "Football",
+        "price": 34.99,
+        "rating": 4.7,
+        "dateAdded": "2024-08-17",
+        "description": "Durable football with a textured surface for better grip and control.",
+        "productImage": "https://www.instituteforgovernment.org.uk/sites/default/files/styles/16_9_mobile/public/2023-03/premier-league-football-1504x846px.webp?h=dd1b06b1&itok=3WmagDeM"
+    },
+    {
+        "productName": "Football Cleats",
+        "brandName": "KickPro",
+        "categoryName": "Football",
+        "price": 89.99,
+        "rating": 4.8,
+        "dateAdded": "2024-08-18",
+        "description": "Lightweight football cleats with excellent traction on grass and turf.",
+        "productImage": "https://sneakernews.com/wp-content/uploads/2023/07/air-jordan-1-cleats-chicago-fj6245-106-fj6805-106.jpg?w=767"
+    },
+    {
+        "productName": "Volleyball",
+        "brandName": "SpikeMaster",
+        "categoryName": "Volleyball",
+        "price": 24.99,
+        "rating": 4.6,
+        "dateAdded": "2024-08-19",
+        "description": "High-quality volleyball with soft touch and superior durability.",
+        "productImage": "https://5.imimg.com/data5/SELLER/Default/2023/1/HR/XL/SO/182613590/volly3-500x500.jpg"
+    },
+    {
+        "productName": "Volleyball Net",
+        "brandName": "SpikeMaster",
+        "categoryName": "Volleyball",
+        "price": 49.99,
+        "rating": 4.7,
+        "dateAdded": "2024-08-20",
+        "description": "Portable volleyball net with adjustable height and durable construction.",
+        "productImage": "https://m.media-amazon.com/images/I/61j01uNHaLL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+        "productName": "Portable Soccer Goal",
+        "brandName": "KickPro",
+        "categoryName": "Football",
+        "price": 79.99,
+        "rating": 4.6,
+        "dateAdded": "2024-08-21",
+        "description": "Lightweight, portable soccer goal with easy setup and durable net.",
+        "productImage": "https://soccergoals.com/wp-content/uploads/2021/07/portable-bownet-6x12-soccer-goal-with-carry-case.jpg"
+    },
+    {
+        "productName": "Soccer Ball",
+        "brandName": "KickPro",
+        "categoryName": "Football",
+        "price": 19.99,
+        "rating": 4.7,
+        "dateAdded": "2024-08-22",
+        "description": "Durable soccer ball with excellent control and aerodynamics.",
+        "productImage": "https://images.seattletimes.com/wp-content/uploads/2023/11/urnpublicidap.org5f647b9002d9e401d16570b0f9705c18Germany_Soccer_EURO_2024_55630.jpg?d=780x520"
+    },
+    {
+        "productName": "Hiking Backpack",
+        "brandName": "TrailBlaze",
+        "categoryName": "Hiking",
+        "price": 99.99,
+        "rating": 4.8,
+        "dateAdded": "2024-08-23",
+        "description": "Spacious and durable hiking backpack with multiple compartments.",
+        "productImage": "https://m.media-amazon.com/images/I/81sAcJb1xtL._AC_SL1500_.jpg"
+    },
+    {
+        "productName": "Trekking Poles",
+        "brandName": "TrailBlaze",
+        "categoryName": "Hiking",
+        "price": 59.99,
+        "rating": 4.7,
+        "dateAdded": "2024-08-24",
+        "description": "Lightweight trekking poles with adjustable length and ergonomic grips.",
+        "productImage": "https://cdn11.bigcommerce.com/s-hgn1l9sh63/images/stencil/550w/products/912/62888/df6e617a6b429dce187befc5dc9b438ac4a4fa20__90389.1704839148.386.513.jpg?c=1"
+    },
+    {
+        "productName": "Basketball Shoes",
+        "brandName": "HoopMaster",
+        "categoryName": "Basketball",
+        "price": 129.99,
+        "rating": 4.8,
+        "dateAdded": "2024-08-25",
+        "description": "High-performance basketball shoes with superior ankle support.",
+        "productImage": "https://s.yimg.com/ny/api/res/1.2/9dYxJvcGVRRlmQ1jJKk4wA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQzNA--/https://media.zenfs.com/en-US/homerun/engadget_479/742bd402d7e5a3020fc1a208fb1f5bdf"
+    },
+    {
+        "productName": "Running Jacket",
+        "brandName": "FitGear",
+        "categoryName": "Running",
+        "price": 79.99,
+        "rating": 4.7,
+        "dateAdded": "2024-08-26",
+        "description": "Lightweight and water-resistant running jacket with reflective strips.",
+        "productImage": "https://cdn.4f.com.pl/media/magefan_blog/kurtka_bieganie-03.jpg"
+    },
+    {
+        "productName": "Yoga Pants",
+        "brandName": "FlexFit",
+        "categoryName": "Yoga",
+        "price": 49.99,
+        "rating": 4.9,
+        "dateAdded": "2024-08-27",
+        "description": "Comfortable and flexible yoga pants with moisture-wicking fabric.",
+        "productImage": "https://img01.ztat.net/article/spp-media-p1/59e81ad3f95643a1b54e260606669d8b/2e6e045dd2594c3f97bc194aacd44b5c.jpg?imwidth=762&filter=packshot"
+    },
+    {
+        "productName": "Yoga Strap",
+        "brandName": "FlexFit",
+        "categoryName": "Yoga",
+        "price": 12.99,
+        "rating": 4.6,
+        "dateAdded": "2024-08-28",
+        "description": "Durable yoga strap to enhance flexibility and deepen stretches.",
+        "productImage": "https://www.gaiam.com/cdn/shop/products/602-1206_Purple_A.jpg?v=1588348246"
+    },
+    {
+        "productName": "Exercise Ball",
+        "brandName": "FitGear",
+        "categoryName": "Fitness Equipment",
+        "price": 25.99,
+        "rating": 4.7,
+        "dateAdded": "2024-08-29",
+        "description": "Anti-burst exercise ball for core workouts and balance training.",
+        "productImage": "https://www.fitnessdepot.ca/media/catalog/product/g/b/gbpr65abcb-2023-darker.jpg"
+    },
+    {
+        "productName": "Resistance Bands Set",
+        "brandName": "FitGear",
+        "categoryName": "Fitness Equipment",
+        "price": 29.99,
+        "rating": 4.7,
+        "dateAdded": "2024-08-30",
+        "description": "Set of resistance bands with varying tension levels for strength training.",
+        "productImage": "https://rugrigfitness.com.au/cdn/shop/files/resistancebandset_ac5f177c-5169-4946-a5ec-d72feaf604ce_720x.png?v=1695896081"
+    },
+    {
+        "productName": "Punching Bag",
+        "brandName": "PowerStrike",
+        "categoryName": "Boxing",
+        "price": 149.99,
+        "rating": 4.8,
+        "dateAdded": "2024-08-31",
+        "description": "Heavy-duty punching bag for intense boxing and kickboxing workouts.",
+        "productImage": "https://img.drz.lazcdn.com/static/bd/p/25c8ffd2ba43e9bc8d282a1879570654.jpg_720x720q80.jpg_.webp"
+    },
+    {
+        "productName": "Boxing Gloves",
+        "brandName": "PowerStrike",
+        "categoryName": "Boxing",
+        "price": 59.99,
+        "rating": 4.6,
+        "dateAdded": "2024-09-01",
+        "description": "Durable boxing gloves with padded knuckles for protection and comfort.",
+        "productImage": "https://i5.walmartimages.com/seo/Venum-Classic-Boxing-Gloves-Unisex-Black-16-oz_2d007bcd-844c-4192-aa96-b2f55a918a91.8e72f96dd9e5f7b5f576da7f616c347f.jpeg"
+    },
+    {
+        "productName": "Speed Jump Rope",
+        "brandName": "PowerStrike",
+        "categoryName": "Boxing",
+        "price": 19.99,
+        "rating": 4.7,
+        "dateAdded": "2024-09-02",
+        "description": "High-speed jump rope designed for agility and endurance training.",
+        "productImage": "https://kingsbox.com/blog/wp-content/uploads/2019/01/Precision_speed_rope_black-4-768x512.jpg"
+    },
+    {
+        "productName": "Inflatable Kayak",
+        "brandName": "AquaAdventure",
+        "categoryName": "Water Sports",
+        "price": 299.99,
+        "rating": 4.8,
+        "dateAdded": "2024-09-03",
+        "description": "Portable and durable inflatable kayak suitable for lakes and rivers.",
+        "productImage": "https://www.boatstogo.com/images/thumbnails/465/288/detailed/11/Inflatable-Kayak-IK365B-seat-2.jpg"
+    },
+    {
+        "productName": "Snorkeling Set",
+        "brandName": "AquaAdventure",
+        "categoryName": "Water Sports",
+        "price": 49.99,
+        "rating": 4.7,
+        "dateAdded": "2024-09-04",
+        "description": "Complete snorkeling set with mask, snorkel, and fins for underwater exploration.",
+        "productImage": "https://i.ebayimg.com/images/g/Q8MAAOSwlcRkW4fV/s-l1600.webp"
+    },
+    {
+        "productName": "Stand-Up Paddleboard",
+        "brandName": "AquaAdventure",
+        "categoryName": "Water Sports",
+        "price": 599.99,
+        "rating": 4.9,
+        "dateAdded": "2024-09-05",
+        "description": "Stable and durable stand-up paddleboard suitable for all skill levels.",
+        "productImage": "https://www.supboardguide.com/wp-content/uploads/2023/06/SUPBoardGuide-Stand-Up-Paddle-Board-Reviews-Header.webp"
+    },
+    {
+        "productName": "Fishing Rod",
+        "brandName": "CatchMaster",
+        "categoryName": "Fishing",
+        "price": 79.99,
+        "rating": 4.6,
+        "dateAdded": "2024-09-06",
+        "description": "Lightweight fishing rod with sensitive tip for better bite detection.",
+        "productImage": "https://m.media-amazon.com/images/I/61sObDwASBL._AC_SL1500_.jpg"
+    },
+    {
+        "productName": "Fishing Tackle Box",
+        "brandName": "CatchMaster",
+        "categoryName": "Fishing",
+        "price": 39.99,
+        "rating": 4.7,
+        "dateAdded": "2024-09-07",
+        "description": "Organized tackle box with multiple compartments for fishing gear.",
+        "productImage": "https://www.anglingactive.co.uk/media/catalog/product/cache/0b94ee7f22fb95ffab131fc27bd2d829/p/l/plano-3-tray-tackle-box---fishing-tackle-storage-plastic-box-eco-large.webp"
+    },
+    {
+        "productName": "Fishing Reel",
+        "brandName": "CatchMaster",
+        "categoryName": "Fishing",
+        "price": 59.99,
+        "rating": 4.8,
+        "dateAdded": "2024-09-08",
+        "description": "Smooth and durable fishing reel designed for fresh and saltwater use.",
+        "productImage": "https://w2f-assets.tenet.io/uploads/2021/11/abu-garcia-zata-spinning-reel-review-1.jpg"
+    },
+    {
+        "productName": "Mountain Bike",
+        "brandName": "TrailMaster",
+        "categoryName": "Cycling",
+        "price": 599.99,
+        "rating": 4.8,
+        "dateAdded": "2024-09-09",
+        "description": "Durable mountain bike with a lightweight frame and excellent suspension for rough terrains.",
+        "productImage": "https://m.media-amazon.com/images/I/81DPZ3XfrwL.jpg"
+    }
+]

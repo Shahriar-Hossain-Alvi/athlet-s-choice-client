@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
-    // const [passwordError, setPasswordError] = useState('');
 
     const handleLogin = e => {
         e.preventDefault();
@@ -56,7 +54,6 @@ const Login = () => {
                 </form>
             </div>
         </div>
-
     );
 };
 

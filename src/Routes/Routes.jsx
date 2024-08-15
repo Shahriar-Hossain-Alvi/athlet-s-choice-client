@@ -4,6 +4,7 @@ import Main from "../Layouts/Main";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/SignUp/Signup";
 import PrivateRoute from "./PrivateRoute";
+import Profile from "../Pages/Profile/Profile";
 
 
 const router = createBrowserRouter([
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <PrivateRoute><Home /></PrivateRoute>
+            },
+            {
+                path: '/profile',
+                element: <PrivateRoute><Profile /></PrivateRoute>
             },
         ]
     },

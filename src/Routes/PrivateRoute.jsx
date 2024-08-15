@@ -17,7 +17,7 @@ const PrivateRoute = ({ children }) => {
     if (loading) {
         return <div className="sweet-loading flex items-center bg-ttPrimary min-h-screen">
             <PacmanLoader
-                color={"#ff7c5b"}
+                color={"#EF2853"}
                 speedMultiplier={2}
                 cssOverride={override}
                 size={70}

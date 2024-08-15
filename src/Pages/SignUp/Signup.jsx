@@ -1,18 +1,15 @@
 import { useContext } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../../Providers/AuthProvider";
-import useAxiosPublic from "../../components/Hooks/useAxiosPublic";
 import axios from "axios";
+import { PiSpinnerBallFill } from "react-icons/pi";
 
 const image_hosting_api = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_api}`;
 
 
 const Signup = () => {
-    const { loading, user, setLoading, createUser, } = useContext(AuthContext);
-    const axiosPublic = useAxiosPublic();
-
-
+    const { loading, user, setLoading, createUser, updateUserProfile } = useContext(AuthContext);
 
 
     const handleSignup = async e => {
@@ -39,7 +36,7 @@ const Signup = () => {
         }
 
         //upload image
-        const imageFile = {image: form.image.files[0]}
+        const imageFile = { image: form.image.files[0] }
         const res = await axios.post(image_hosting_url, imageFile, {
             headers: {
                 'content-type': 'multipart/form-data'
@@ -52,7 +49,31 @@ const Signup = () => {
         }
 
         console.log(userInfo);
-        
+
+        // create user after successful image upload
+        if (res.data.success) {
+            createUser(email, password)
+                .then(result => {
+                    //update name and image
+                    if (result.user) {
+                        updateUserProfile(name, imgURL)
+                            .then(() => {
+                                toast.success('Profile created successfully');
+                                setLoading(false);
+                            })
+                            .catch(error => {
+                                console.error(error);
+                                toast.error(error);
+                            })
+                    }
+                    form.reset();
+                })
+                .catch(error => {
+                    console.error(error);
+                    toast.error(error);
+                })
+        }
+
     }
 
     return (
@@ -104,7 +125,14 @@ const Signup = () => {
                         <input name="password" type="password" placeholder="Enter your password" className="input input-bordered" required />
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Login</button>
+                        {
+                            loading ?
+                                <button className="btn btn-disabled">
+                                    <PiSpinnerBallFill className="animate-spin" />
+                                </button>
+                                :
+                                <button className="btn bg-acPink hover:bg-acNavyBlue text-acBlackPrimary">Sign up</button>
+                        }
                     </div>
                 </form>
             </div>

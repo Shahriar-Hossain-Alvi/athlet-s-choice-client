@@ -1,22 +1,30 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import app from "../components/Firebase/firebase.config";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import useAxiosPublic from "../components/Hooks/useAxiosPublic";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, onAuthStateChanged } from "firebase/auth";
+
+
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [user, setUser] = useState(null);
-    const axiosPublic = useAxiosPublic();
 
 
     // create user with email and password
-    const createUser = (email, password)=>{
+    const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
+    }
+
+    //update user name and image after sign up
+    const updateUserProfile = (name, image) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: image
+        })
     }
 
 
@@ -27,12 +35,22 @@ const AuthProvider = ({ children }) => {
     }
 
 
+    // observer
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser);
+            setLoading(false);
+        })
+        return unsubscribe();
+    }, [])
+
     const authInfo = {
         loading,
         setLoading,
         user,
         createUser,
-        loginInUser
+        loginInUser,
+        updateUserProfile
     }
 
     return (

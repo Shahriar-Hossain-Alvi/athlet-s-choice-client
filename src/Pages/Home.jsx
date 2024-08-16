@@ -2,27 +2,31 @@ import useAxiosPublic from "../components/Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import ProductCard from "../components/ProductCard/ProductCard";
 import { FaSearch } from "react-icons/fa";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 
 
 const Home = () => {
     const axiosPublic = useAxiosPublic();
     const [searchedProducts, setSearchedProducts] = useState([]);
+    const [sortingMethod, setSortingMethod] = useState('Name');
 
     const searchInput = useRef();
     const selectCategory = useRef();
+    const selectSortingOption = useRef();
 
     // get all products
     const { data: allProducts = [], isLoading, isError, error } = useQuery({
-        queryKey: ['allProducts'],
+        queryKey: ['allProducts', sortingMethod],
         queryFn: async () => {
-            const res = await axiosPublic.get('/allProducts');
+            const res = await axiosPublic.get(`/allProducts?sortOption=${sortingMethod}`);
             return res.data;
         }
     })
 
-    // get all products
+
+    // get all categories
     const { data: categoryNames = [] } = useQuery({
         queryKey: ['categoryNames'],
         queryFn: async () => {
@@ -50,10 +54,17 @@ const Home = () => {
         const searchedProduct = searchInput.current.value;
 
         const res = await axiosPublic.get(`/searchProduct?productName=${searchedProduct}`);
+
+        if (res.data.message == 0) {
+            return toast.error("No data is found with that name.");
+        }
+
         setSearchedProducts(res.data);
         selectCategory.current.value = "Filter by category"
     }
 
+
+    // filter products by category
     const handleFilter = async () => {
         const filteredCategoryName = selectCategory.current.value;
 
@@ -66,24 +77,32 @@ const Home = () => {
 
     }
 
+
+    // sort products
+    const handleSort = () => {
+        setSortingMethod(selectSortingOption.current.value);
+    }
+
+
     return (
         <div className="min-h-screen">
+            <ToastContainer />
             <div className="text-center pt-10">
                 <h1 className="text-3xl font-medium mb-3">Welcome to <span className="text-acPink">Athlete{`'`}s Choice</span></h1>
                 <p className="font-medium">Discover our products below</p>
             </div>
 
-            {/* search box */}
-            <div className="max-w-sm md:max-w-md mx-auto mt-10 ">
+            {/* search box and filter */}
+            <div className="max-w-sm md:max-w-md mx-auto mt-10">
                 <div className="join">
-                    <label className="input input-bordered flex items-center rounded-r-none gap-2">
+                    <label className="input input-sm md:input-md input-bordered flex items-center rounded-r-none">
                         <input ref={searchInput} type="text" placeholder="Search by name" className="grow" />
-                        <button onClick={handleSearch} className="btn btn-sm btn-circle bg-acPink hover:bg-transparent hover:border-acPink text-white">
+                        <button onClick={handleSearch} className="btn btn-xs md:btn-sm btn-circle bg-acPink hover:bg-transparent hover:border-acPink text-white">
                             <FaSearch />
                         </button>
                     </label>
 
-                    <select onChange={handleFilter} ref={selectCategory} className="select select-bordered join-item">
+                    <select onChange={handleFilter} ref={selectCategory} className="select select-bordered select-sm md:select-md join-item">
                         <option defaultValue>Filter by category</option>
                         {
                             categoryNames.map((category, index) => <option key={index}>{category}</option>)
@@ -93,19 +112,29 @@ const Home = () => {
             </div>
 
 
+            {/* sort option */}
+            <div className="flex justify-center items-center gap-2 mt-10">
+                <h2>Sort by: </h2>
 
+                <select onChange={handleSort} ref={selectSortingOption} defaultValue={sortingMethod} className="select select-bordered select-sm md:select-md join-item">
+                    <option>Name</option>
+                    <option>Newest Added</option>
+                    <option>Price low to high</option>
+                    <option>Price high to low</option>
+                </select>
+            </div>
 
             {/* show the products */}
             <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5 mx-2">
                 {
-                    searchedProducts.length === 0 && allProducts.map(product => <ProductCard
+                    searchedProducts.length === 0 && allProducts?.map(product => <ProductCard
                         key={product._id}
                         product={product}
                     />)
                 }
 
                 {
-                    searchedProducts.length > 0 && searchedProducts.map(product => <ProductCard
+                    searchedProducts.length > 0 && searchedProducts?.map(product => <ProductCard
                         key={product._id}
                         product={product}
                     />)

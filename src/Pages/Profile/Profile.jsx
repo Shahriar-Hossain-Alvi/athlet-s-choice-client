@@ -6,7 +6,7 @@ const Profile = () => {
     const { user } = useContext(AuthContext);
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen mx-2">
             <h4 className="font-medium text-2xl text-center mt-10">Uer Information:</h4>
 
             <div className="flex max-w-2xl mx-auto mt-5 text-left items-center justify-center gap-8 font-serif">

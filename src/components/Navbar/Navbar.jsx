@@ -18,7 +18,7 @@ const Navbar = () => {
 
             <div className="flex-none">
                 <ul id="navList" className="menu menu-horizontal px-1">
-                    <li><NavLink className="font-medium bg-acPink text-acBlackPrimary hover:bg-acNavyBlue" to="/products">Products</NavLink></li>
+                    <li><NavLink className="font-semibold border border-acPink text-base text-white hover:text-acPink" to="/profile">Profile</NavLink></li>
                 </ul>
 
                 <div className="dropdown dropdown-end">
@@ -32,8 +32,7 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><Link to="/profile">Profile</Link></li>
-                        <li><button onClick={logout}>Logout</button></li>
+                        <li><button className="bg-acPink text-white font-medium" onClick={logout}>Logout</button></li>
                     </ul>
                 </div>
             </div>

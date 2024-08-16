@@ -54,12 +54,6 @@ const Signup = () => {
         })
         const imgURL = res.data.data.display_url;
 
-        const userInfo = {
-            name, email, password, imgURL
-        }
-
-        console.log(userInfo);
-
         // create user after successful image upload
         if (res.data.success) {
             createUser(email, password)

@@ -60,7 +60,11 @@ const Home = () => {
         }
 
         setSearchedProducts(res.data);
-        selectCategory.current.value = "Filter by category"
+
+        // reset other filters
+        selectCategory.current.value = "Filter by category";
+        setSortingMethod("Name");
+        selectSortingOption.current.value = "Name"
     }
 
 
@@ -72,7 +76,11 @@ const Home = () => {
             const res = await axiosPublic.get(`/filterByCategory?categoryName=${filteredCategoryName}`);
 
             setSearchedProducts(res.data);
+
+            // reset other filters
             searchInput.current.value = '';
+            setSortingMethod("Name");
+            selectSortingOption.current.value = "Name"
         }
 
     }
@@ -81,6 +89,10 @@ const Home = () => {
     // sort products
     const handleSort = () => {
         setSortingMethod(selectSortingOption.current.value);
+
+        // reset other filters
+        searchInput.current.value = '';
+        setSearchedProducts([]);
     }
 
 

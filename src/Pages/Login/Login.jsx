@@ -81,7 +81,7 @@ const Login = () => {
     return (
         <div className="min-h-screen flex justify-center items-center">
             <ToastContainer></ToastContainer>
-            <div className='glass w-3/4 lg:w-1/2 flex flex-col my-5 pt-5 round-2xl shadow-2xl shadow-current'>
+            <div className='glass w-5/6 md:w-3/4 lg:w-1/2 flex flex-col my-5 pt-5 round-2xl shadow-2xl shadow-current'>
                 <div className="text-center font-serif">
                     <h1 className="text-5xl font-bold">Login</h1>
                     <p className="py-6">Please login first to view the product listings
@@ -89,12 +89,14 @@ const Login = () => {
                 </div>
 
                 <div className='mt-4'>
-                    <div className="flex justify-center gap-2 items-center">
-                        <h4 className="text-lg ">Sign in with <FaHandPointRight className="inline text-2xl text-acPink" /></h4>
+                    <div className="flex flex-col md:flex-row justify-center gap-2 items-center">
+                        <div className='flex items-center'>
+                            <h4 className="text-lg ">Sign in with <FaHandPointRight className="inline text-2xl text-acPink" /></h4>
 
-                        <button onClick={handleGoogleSignIn} className="btn btn-circle">
-                            <FcGoogle className="text-lg" />
-                        </button>
+                            <button onClick={handleGoogleSignIn} className="btn btn-circle">
+                                <FcGoogle className="text-lg" />
+                            </button>
+                        </div>
 
                         <h4 className="text-lg">Or fill up the form <FaHandPointDown className="inline text-2xl text-acPink" /></h4>
                     </div>

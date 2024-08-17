@@ -14,6 +14,7 @@ const Home = () => {
 
     const searchInput = useRef();
     const selectCategory = useRef();
+    const selectBrand = useRef();
     const selectSortingOption = useRef();
 
     // get all products
@@ -31,6 +32,16 @@ const Home = () => {
         queryKey: ['categoryNames'],
         queryFn: async () => {
             const res = await axiosPublic.get('/categoryNames');
+            return res.data;
+        }
+    })
+
+
+    // get all brands
+    const { data: brandNames = [] } = useQuery({
+        queryKey: ['brandNames'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/brandNames');
             return res.data;
         }
     })
@@ -63,13 +74,14 @@ const Home = () => {
 
         // reset other filters
         selectCategory.current.value = "Filter by category";
+        selectBrand.current.value = "Filter by brand";
         setSortingMethod("Name");
         selectSortingOption.current.value = "Name"
     }
 
 
     // filter products by category
-    const handleFilter = async () => {
+    const handleCategoryFilter = async () => {
         const filteredCategoryName = selectCategory.current.value;
 
         if (filteredCategoryName !== "Filter by category") {
@@ -80,7 +92,27 @@ const Home = () => {
             // reset other filters
             searchInput.current.value = '';
             setSortingMethod("Name");
+            selectSortingOption.current.value = "Name";
+            selectBrand.current.value = "Filter by brand";
+        }
+
+    }
+
+
+    // filter products by brand
+    const handleBrandFilter = async () => {
+        const filteredBrandName = selectBrand.current.value;
+
+        if (filteredBrandName !== "Filter by brand") {
+            const res = await axiosPublic.get(`/filterByBrand?brandName=${filteredBrandName}`);
+
+            setSearchedProducts(res.data);
+
+            // reset other filters
+            searchInput.current.value = '';
+            setSortingMethod("Name");
             selectSortingOption.current.value = "Name"
+            selectCategory.current.value = "Filter by category"
         }
 
     }
@@ -93,6 +125,8 @@ const Home = () => {
         // reset other filters
         searchInput.current.value = '';
         setSearchedProducts([]);
+        selectCategory.current.value = "Filter by category"
+        selectBrand.current.value = "Filter by brand";
     }
 
 
@@ -104,17 +138,17 @@ const Home = () => {
                 <p className="font-medium">Discover our products below</p>
             </div>
 
-            {/* search box and filter */}
+            {/* search box and category filter */}
             <div className="max-w-sm md:max-w-md mx-auto mt-10">
-                <div className="join">
-                    <label className="input input-sm md:input-md input-bordered flex items-center rounded-r-none">
+                <div className="flex gap-2 md:gap-0 flex-col md:flex-row">
+                    <label className="input input-sm md:input-md input-bordered flex items-center md:rounded-r-none">
                         <input ref={searchInput} type="text" placeholder="Search by name" className="grow" />
                         <button onClick={handleSearch} className="btn btn-xs md:btn-sm btn-circle bg-acPink hover:bg-transparent hover:border-acPink text-white">
                             <FaSearch />
                         </button>
                     </label>
 
-                    <select onChange={handleFilter} ref={selectCategory} className="select select-bordered select-sm md:select-md join-item">
+                    <select onChange={handleCategoryFilter} ref={selectCategory} className="select select-bordered select-sm md:select-md join-item md:rounded-l-none">
                         <option defaultValue>Filter by category</option>
                         {
                             categoryNames.map((category, index) => <option key={index}>{category}</option>)
@@ -124,17 +158,26 @@ const Home = () => {
             </div>
 
 
-            {/* sort option */}
-            <div className="flex justify-center items-center gap-2 mt-10">
-                <h2>Sort by: </h2>
+            {/* sort option and brand filter */}
 
-                <select onChange={handleSort} ref={selectSortingOption} defaultValue={sortingMethod} className="select select-bordered select-sm md:select-md join-item">
+            <div className="flex justify-center items-center mt-10">
+                <h2 className="mr-2">Sort by: </h2>
+
+                <select onChange={handleSort} ref={selectSortingOption} defaultValue={sortingMethod} className="select select-bordered rounded-r-none select-sm md:select-md join-item">
                     <option>Name</option>
                     <option>Newest Added</option>
                     <option>Price low to high</option>
                     <option>Price high to low</option>
                 </select>
+
+                <select onChange={handleBrandFilter} ref={selectBrand} className="select select-bordered select-sm md:select-md join-item md:rounded-l-none">
+                    <option defaultValue>Filter by brand</option>
+                    {
+                        brandNames.map((brand, index) => <option key={index}>{brand}</option>)
+                    }
+                </select>
             </div>
+
 
             {/* show the products */}
             <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5 mx-2">

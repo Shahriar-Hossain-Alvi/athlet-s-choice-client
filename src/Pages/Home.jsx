@@ -224,7 +224,7 @@ const Home = () => {
 
             {/* price range */}
             <form onSubmit={handlePriceRange} className="max-w-md mx-auto mt-10">
-                <label className="form-control flex-row gap-2">
+                <label className="form-control md:flex-row justify-center items-center gap-2">
                     <div className="label">
                         <span className="label-text">Filter by price: </span>
                     </div>

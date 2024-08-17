@@ -11,11 +11,14 @@ const Home = () => {
     const axiosPublic = useAxiosPublic();
     const [searchedProducts, setSearchedProducts] = useState([]);
     const [sortingMethod, setSortingMethod] = useState('Name');
+    const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
     const searchInput = useRef();
     const selectCategory = useRef();
     const selectBrand = useRef();
     const selectSortingOption = useRef();
+    const minPrice = useRef();
+    const maxPrice = useRef();
 
     // get all products
     const { data: allProducts = [], isLoading, isError, error } = useQuery({
@@ -76,7 +79,9 @@ const Home = () => {
         selectCategory.current.value = "Filter by category";
         selectBrand.current.value = "Filter by brand";
         setSortingMethod("Name");
-        selectSortingOption.current.value = "Name"
+        selectSortingOption.current.value = "Name";
+        minPrice.current.value = "";
+        maxPrice.current.value = "";
     }
 
 
@@ -94,6 +99,8 @@ const Home = () => {
             setSortingMethod("Name");
             selectSortingOption.current.value = "Name";
             selectBrand.current.value = "Filter by brand";
+            minPrice.current.value = "";
+            maxPrice.current.value = "";
         }
 
     }
@@ -111,8 +118,10 @@ const Home = () => {
             // reset other filters
             searchInput.current.value = '';
             setSortingMethod("Name");
-            selectSortingOption.current.value = "Name"
-            selectCategory.current.value = "Filter by category"
+            selectSortingOption.current.value = "Name";
+            selectCategory.current.value = "Filter by category";
+            minPrice.current.value = "";
+            maxPrice.current.value = "";
         }
 
     }
@@ -127,6 +136,41 @@ const Home = () => {
         setSearchedProducts([]);
         selectCategory.current.value = "Filter by category"
         selectBrand.current.value = "Filter by brand";
+        minPrice.current.value = "";
+        maxPrice.current.value = "";
+    }
+
+
+    // handle the disabled submit button
+    const handleInputChange = () => {
+        const minimumPrice = minPrice.current.value;
+        const maximumPrice = maxPrice.current.value;
+
+        if (minimumPrice && maximumPrice && !isNaN(minimumPrice) && !isNaN(maximumPrice)) {
+            setIsSubmitDisabled(false);
+        } else {
+            setIsSubmitDisabled(true);
+        }
+    };
+
+
+    // filter products by price range
+    const handlePriceRange = async e => {
+        e.preventDefault();
+
+        const minimumPrice = minPrice.current.value;
+        const maximumPrice = maxPrice.current.value;
+
+
+        const res = await axiosPublic.get(`/filterByPrice?minPrice=${minimumPrice}&&maxPrice=${maximumPrice}`);
+        setSearchedProducts(res.data);
+
+        // reset other filters
+        searchInput.current.value = '';
+        selectCategory.current.value = "Filter by category";
+        selectBrand.current.value = "Filter by brand";
+        setSortingMethod("Name");
+        selectSortingOption.current.value = "Name"
     }
 
 
@@ -159,7 +203,6 @@ const Home = () => {
 
 
             {/* sort option and brand filter */}
-
             <div className="flex justify-center items-center mt-10">
                 <h2 className="mr-2">Sort by: </h2>
 
@@ -170,13 +213,32 @@ const Home = () => {
                     <option>Price high to low</option>
                 </select>
 
-                <select onChange={handleBrandFilter} ref={selectBrand} className="select select-bordered select-sm md:select-md join-item md:rounded-l-none">
+                <select onChange={handleBrandFilter} ref={selectBrand} className="select select-bordered select-sm md:select-md join-item rounded-l-none">
                     <option defaultValue>Filter by brand</option>
                     {
                         brandNames.map((brand, index) => <option key={index}>{brand}</option>)
                     }
                 </select>
             </div>
+
+
+            {/* price range */}
+            <form onSubmit={handlePriceRange} className="max-w-md mx-auto mt-10">
+                <label className="form-control flex-row gap-2">
+                    <div className="label">
+                        <span className="label-text">Filter by price: </span>
+                    </div>
+                    <div className="flex gap-2">
+                        <input onChange={handleInputChange} ref={minPrice} type="number" placeholder="Minimum" className="input input-bordered w-32" />
+
+                        <input onChange={handleInputChange} ref={maxPrice} type="number" placeholder="Maximum" className="input input-bordered w-32" />
+                    </div>
+
+                    <button disabled={isSubmitDisabled} className="btn btn-circle bg-acPink hover:border-acPink text-white">
+                        <FaSearch />
+                    </button>
+                </label>
+            </form>
 
 
             {/* show the products */}

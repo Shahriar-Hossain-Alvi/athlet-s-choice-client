@@ -9,7 +9,7 @@ const Profile = () => {
         <div className="min-h-screen mx-2">
             <h4 className="font-medium text-2xl text-center mt-10">Uer Information:</h4>
 
-            <div className="flex max-w-2xl mx-auto mt-5 text-left items-center justify-center gap-8 font-serif">
+            <div className="flex flex-col md:flex-row max-w-2xl mx-auto mt-5 text-left items-center justify-center gap-8 font-serif">
                 <img className="w-48 h-48" src={user.photoURL} alt="user profile image" />
 
                 <div>

@@ -17,7 +17,8 @@ const Navbar = () => {
 
 
             <div className="flex-none">
-                <ul id="navList" className="menu menu-horizontal px-1">
+                <ul id="navList" className="menu menu-horizontal px-1 gap-2">
+                    <li><NavLink className="font-semibold border border-acPink text-base text-white hover:text-acPink" to="/">Home</NavLink></li>
                     <li><NavLink className="font-semibold border border-acPink text-base text-white hover:text-acPink" to="/profile">Profile</NavLink></li>
                 </ul>
 

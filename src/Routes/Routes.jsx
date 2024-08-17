@@ -14,7 +14,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <PrivateRoute><Home /></PrivateRoute>
+                element: <PrivateRoute><Home /></PrivateRoute>,
+                loader: ()=>fetch('http://localhost:5000/productCount')
             },
             {
                 path: '/profile',

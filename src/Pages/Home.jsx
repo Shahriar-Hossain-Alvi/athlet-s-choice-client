@@ -4,15 +4,52 @@ import ProductCard from "../components/ProductCard/ProductCard";
 import { FaSearch } from "react-icons/fa";
 import { useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { useLoaderData } from "react-router-dom";
 
 
 
 const Home = () => {
+    const { count } = useLoaderData();
     const axiosPublic = useAxiosPublic();
     const [searchedProducts, setSearchedProducts] = useState([]);
     const [sortingMethod, setSortingMethod] = useState('Name');
     const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
+
+    // pagination codes
+
+    //declare a state to dynamically get number of items pr page
+    const [itemsPerPage, setItemsPerPage] = useState(10);
+
+    //calculate number of pages
+    const numberOfPages = Math.ceil(count / itemsPerPage);
+
+    //declare a state to store the current page number
+    const [currentPage, setCurrentPage] = useState(0);
+
+    //get the total pages based on the selected item
+    const pages = [...Array(numberOfPages).keys()];
+
+    const handleItemsPerPage = e => {
+        const val = parseInt(e.target.value)
+        console.log(val);
+        setItemsPerPage(val);
+    }
+
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    }
+
+    const handleNextPage = () => {
+        if (currentPage < pages.length) {
+            setCurrentPage(currentPage + 1);
+        }
+    }
+
+
+    // use ref for input fields
     const searchInput = useRef();
     const selectCategory = useRef();
     const selectBrand = useRef();
@@ -240,6 +277,28 @@ const Home = () => {
                 </label>
             </form>
 
+            {/* Buttons for pages */}
+            <div className='pagination'>
+                {/* previous page button */}
+                <button onClick={handlePrevPage} className={`btn ${currentPage === 1 && 'btn-disabled'} btn-info text-white rounded-r-none`}>Previous</button>
+
+                {/* page numbers */}
+                {
+                    pages.map((page, idx) => <button onClick={() => setCurrentPage(page + 1)} className={`btn rounded-none text-white border-r border-black ${page + 1 === currentPage ? 'btn-success' : 'btn-primary'}`} key={idx}>{page + 1}</button>)
+                }
+
+                {/* next page button */}
+                <button onClick={handleNextPage} className={`btn ${currentPage === pages.length && 'btn-disabled'} btn-info text-white rounded-l-none`}>Next</button>
+
+
+                {/* Choose Items per page */}
+                <select value={itemsPerPage} onChange={handleItemsPerPage}>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
 
             {/* show the products */}
             <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5 mx-2">

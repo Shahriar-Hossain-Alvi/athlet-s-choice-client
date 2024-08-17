@@ -8,7 +8,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar">
+        <div className="navbar bg-acBlackPrimary">
             <div className="flex-1">
                 <Link to='/' className="btn p-0 btn-lg">
                     <img className="w-48" src={logo} alt="logo" />

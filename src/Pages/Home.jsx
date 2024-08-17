@@ -2,38 +2,46 @@ import useAxiosPublic from "../components/Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import ProductCard from "../components/ProductCard/ProductCard";
 import { FaSearch } from "react-icons/fa";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import { useLoaderData } from "react-router-dom";
 
 
 
 const Home = () => {
-    const { count } = useLoaderData();
+    // const { count } = useLoaderData();
     const axiosPublic = useAxiosPublic();
     const [searchedProducts, setSearchedProducts] = useState([]);
     const [sortingMethod, setSortingMethod] = useState('Name');
     const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
-
-    // pagination codes
+    
+    // ============== pagination codes ===========
+    const [totalItemsInServer, setTotalItemsInServer] = useState(0)
 
     //declare a state to dynamically get number of items pr page
     const [itemsPerPage, setItemsPerPage] = useState(10);
 
-    //calculate number of pages
-    const numberOfPages = Math.ceil(count / itemsPerPage);
-
     //declare a state to store the current page number
-    const [currentPage, setCurrentPage] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    useEffect(() => {
+        axiosPublic.get('/productCount')
+            .then(res => {
+                setTotalItemsInServer(res.data.count);
+            })
+    }, [currentPage, itemsPerPage, axiosPublic])
+
+
+    //calculate number of pages
+    const numberOfPages = Math.ceil(totalItemsInServer / itemsPerPage);
 
     //get the total pages based on the selected item
     const pages = [...Array(numberOfPages).keys()];
 
     const handleItemsPerPage = e => {
-        const val = parseInt(e.target.value)
-        console.log(val);
+        const val = parseInt(e.target.value);
         setItemsPerPage(val);
+        setCurrentPage(1);
     }
 
     const handlePrevPage = () => {
@@ -59,9 +67,9 @@ const Home = () => {
 
     // get all products
     const { data: allProducts = [], isLoading, isError, error } = useQuery({
-        queryKey: ['allProducts', sortingMethod],
+        queryKey: ['allProducts', sortingMethod, currentPage, itemsPerPage],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/allProducts?sortOption=${sortingMethod}`);
+            const res = await axiosPublic.get(`/allProducts?sortOption=${sortingMethod}&page=${currentPage - 1}&size=${itemsPerPage}`);
             return res.data;
         }
     })
@@ -278,7 +286,7 @@ const Home = () => {
             </form>
 
             {/* Buttons for pages */}
-            <div className='pagination'>
+            <div className='text-center mt-10'>
                 {/* previous page button */}
                 <button onClick={handlePrevPage} className={`btn ${currentPage === 1 && 'btn-disabled'} btn-info text-white rounded-r-none`}>Previous</button>
 
